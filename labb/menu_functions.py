@@ -1,12 +1,12 @@
-import nmap
 import os
 from pathlib import Path
 import re
+import nmap
 
-ip_regex = r'\b((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\b'
+IP_REGEX = r'\b((25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\.){3}(25[0-5]|2[0-4][0-9]|1[0-9]{2}|[1-9]?[0-9])\b'
 
 def is_valid_ip(ip):
-    if re.fullmatch(ip_regex, ip):
+    if re.fullmatch(IP_REGEX, ip):
         return True
     return False
 
@@ -15,12 +15,11 @@ def check_result_files():
     result = [file for file in current_directory.rglob("*.txt") if file.name != 'input.txt']
     if result:
         return result
-    else:
-        print('No saved scan results found!')
+    print('No saved scan results found!')
 
 def create_input_file(input_for_scan):
     with open(input_for_scan, 'w') as file:
-           file.write 
+        file.write
 
 def read_input_file(input_for_scan):
     if os.path.exists(input_for_scan):
@@ -30,12 +29,12 @@ def read_input_file(input_for_scan):
                 print()
                 for line in lines:
                     print(line.strip())
-            else: 
+            else:
                 print("The file doesn't contain anything")
     else:
         create_input_file(input_for_scan)
         print(f"First time running, created {input_for_scan}")
-    
+
 def append_input_file(input_for_scan, ip):
     if os.path.exists(input_for_scan):
         with open(input_for_scan, 'a') as file:
@@ -80,14 +79,14 @@ def scan_from_input(ip):
         'ipv4': result['addresses'].get('ipv4', 'Unknown'),
         'open_ports': []
     }
-    
+
     for port, port_data in result['tcp'].items():
         if port_data['state'] == 'open':
             host_info['open_ports'].append({
                 'port': port,
                 'service': port_data['name']
             })
-    
+
     return host_info
 
 def extract_from_input(input_for_scan):
@@ -134,7 +133,7 @@ def save_result(result):
 
 def show_result_files():
     result = check_result_files()
-    for file in result: 
+    for file in result:
         print(file.name)
 
 #Lägga till .txt på slutet så det räcker att man skriver IP ?
