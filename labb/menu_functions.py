@@ -69,7 +69,7 @@ def remove_from_input_file(input_for_scan, ip, lines):
         else:
             print("Deletion canceled.")
 
-# Saknar felhantering om det inte går att pinga host
+# Saknar felhantering om det inte går att nå host
 def scan_from_input(ip):
     nm = nmap.PortScanner()
     nm.scan(ip)
