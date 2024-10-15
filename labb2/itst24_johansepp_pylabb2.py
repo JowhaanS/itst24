@@ -1,6 +1,6 @@
 import argparse
 import sys
-from cryptography.fernet import Fernet
+from cryptography.fernet import Fernet, InvalidToken
 import os
 
 def confirm_overwrite(file_path):
@@ -42,8 +42,8 @@ def decrypt_file(file_path, key):
 
     try:
         decrypted_data = fernet.decrypt(encrypted_data)
-    except Exception as e:
-        print(f"Decryption failed: {e}")
+    except InvalidToken:
+        print("Decryption failed: Invalid key or the file was not encrypted with Fernet.")
         return
     
     if confirm_overwrite(file_path):
