@@ -8,11 +8,12 @@ import geo_dnslookup
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description=
     'My little toolbox, includes symmetric keygen, '
-    'encryption, decryption, basic nmap scan with logging option' 
-    '& sniff network traffic using scapy')
+    'encryption, decryption, basic nmap scan with logging option,'
+    'geo dns lookup & sniff network traffic using scapy')
     parser.add_argument('operation', choices=
     ['keygen', 'nmap', 'encrypt', 'decrypt', 'sniff', 'gdnsl'],
-    help='Specify whether to generate a key, encrypt or decrypt a file or use nmap.')
+    help='Specify whether to generate a key, encrypt or decrypt a file,' 
+    'geo dns lookup, sniff or use nmap.')
 
     args, remaining_args = parser.parse_known_args()
 
