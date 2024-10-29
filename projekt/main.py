@@ -58,7 +58,7 @@ match args.operation:
         gdnsl_args = gdnsl_parser.parse_args(remaining_args)
         geo_dnslookup.geo_dns_lookup(gdnsl_args.query, gdnsl_args.log)
     case 'sniff':
-        #Operation: Sniff network packages using Scapy, including interface/filter
+        #Operation: Sniff network packages using Scapy, including interface & filter
         #You may save the output to view in wireshark if you wish
         #Example: python main.py sniff -c 10 -f tcp -o output
         sniff_parser = argparse.ArgumentParser('Sniff using scapy')

@@ -4,6 +4,7 @@ import requests
 
 IPINFO_API_URL = 'http://ipinfo.io/{}/json'
 
+#Check wether it's an ip adress or domain name
 def is_ip_address(query):
     ipv4_pattern = re.compile(r"^\d{1,3}(\.\d{1,3}){3}$")
     ipv6_pattern = re.compile(r"^([0-9a-fA-F]{1,4}:){7}[0-9a-fA-F]{1,4}$")
