@@ -32,6 +32,7 @@ def scan_network(network, do_log):
     if do_log:
         logging.basicConfig(filename='networklog.log', level=logging.INFO)
         log_result(units)
+        print('Scan complete')
     else:
         for unit in units:
             print(f"IP: {unit['ip']}, Hostname: {unit['hostname']}")
