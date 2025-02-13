@@ -56,7 +56,7 @@ A simple packet sniffer built using `Scapy` to capture and analyze network packe
 
 2. Navigate to the project directory:
     ```bash
-    cd projekt
+    cd iths_python/projekt
     ```
 
 3. Install the required dependencies:
